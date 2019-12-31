@@ -3,7 +3,17 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/todo");
+mongoose.connect('mongodb+srv://Rajatino16:salilba65@cluster0-gpq1p.mongodb.net/test?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('Connected to DB!');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
+
+//mongoose.connect("mongodb://localhost/todo");
+
 
 var fSchema = new mongoose.Schema(
 				{
